@@ -57,7 +57,7 @@ class Normalizer:
 
         """
         self.coding = "utf-16-le" if sys.byteorder == "little" else "utf-16-be"
-        self.accept_pattern = re.compile(r"[^\u4e00-\u9fffA-Za-z，。、,\.!? ]")
+        self.accept_pattern = re.compile(r"[^\u4e00-\u9fffA-Za-z，。、,\.!?\- ]")
         self.sub_pattern = re.compile(r"\[uv_break\]|\[laugh\]|\[lbreak\]")
         self.chinese_char_pattern = re.compile(r"[\u4e00-\u9fff]")
         self.english_word_pattern = re.compile(r"\b[A-Za-z]+\b")
