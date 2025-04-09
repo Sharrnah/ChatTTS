@@ -16,7 +16,7 @@ import torch.nn.functional as F
 import torch.nn.utils.parametrize as P
 from torch.nn.utils.parametrizations import weight_norm
 from tqdm import tqdm
-from transformers import LlamaModel, LlamaConfig, LogitsWarper
+from transformers import LlamaModel, LlamaConfig, LogitsProcessor
 from transformers.cache_utils import Cache
 from transformers.modeling_outputs import BaseModelOutputWithPast
 from transformers.utils import is_flash_attn_2_available
@@ -356,7 +356,7 @@ class GPT(nn.Module):
         attention_mask: Optional[torch.Tensor] = None,
         max_new_token=2048,
         min_new_token=0,
-        logits_warpers: List[LogitsWarper] = [],
+        logits_warpers: List[LogitsProcessor] = [],
         logits_processors: List[CustomRepetitionPenaltyLogitsProcessorRepeat] = [],
         infer_text=False,
         return_attn=False,
